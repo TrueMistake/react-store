@@ -27,23 +27,6 @@ const Header = () => {
                                     <Link to="/shop" className="nav-link dropdown-toggle" data-toggle="dropdown"
                                           role="button" aria-haspopup="true"
                                           aria-expanded="false">Shop</Link>
-                                    <ul className="dropdown-menu">
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">Shop Category</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">Product Details</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">Product Checkout</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">Confirmation</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to="/">Shopping Cart</Link>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li className="nav-item submenu dropdown">
                                     <Link to="/blog" className="nav-link dropdown-toggle">Blog</Link>

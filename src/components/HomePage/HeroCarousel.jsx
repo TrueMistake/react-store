@@ -8,6 +8,7 @@ import SwiperCore, {
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getHeroSliderCategories} from "../../redux/actions/products";
+import Loader from "../Loader";
 
 SwiperCore.use([Pagination]);
 
@@ -19,7 +20,7 @@ const HeroCarousel = () => {
     }, [])
 
     if (heroCategories.isLoading) {
-        return <div>Загрузка...</div>
+        return <Loader/>
     }
 
     return (

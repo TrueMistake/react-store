@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {getTrendingProducts} from "../../redux/actions/products";
 import {Link} from "react-router-dom";
+import Loader from "../Loader";
 
 const TrendingProducts = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const TrendingProducts = () => {
     },[])
 
     if (products.isLoading) {
-        return <div>Загрузка...</div>
+        return <Loader/>
     }
 
     return (

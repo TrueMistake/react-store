@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {getLatesBlog} from "../../redux/actions/blog";
+import Loader from "../Loader";
 
 const Blogs = () => {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const Blogs = () => {
     }, [])
 
     if (blogs.isLoading){
-        return <div>Загрузка...</div>
+        return <Loader/>
     }
 
     return (
@@ -24,10 +25,10 @@ const Blogs = () => {
                 </div>
                 <div className="row">
                     {blogs.blogs.map(blog =>
-                        <div className="col-md-6 col-lg-4 mb-4 mb-lg-0">
+                        <div className="col-md-6 col-lg-4 mb-4 mb-lg-0" key={blog.id}>
                             <div className="card card-blog">
                                 <div className="card-blog__img">
-                                    <img className="card-img rounded-0" src={require ('../../img/blog/blog1.png')} alt="" />
+                                    <img className="card-img rounded-0" src={require ('../../img/home/hero-slide1.png')} alt="" />
                                 </div>
                                 <div className="card-body">
                                     <ul className="card-blog__info">
@@ -35,10 +36,10 @@ const Blogs = () => {
                                         <li><Link to="/"><i className="ti-comments-smiley"></i> 2 Comments</Link></li>
                                     </ul>
                                     <h4 className="card-blog__title">
-                                        <Link to="/">{blog.title}</Link>
+                                        <Link to={`/blog/${blog.id}`}>{blog.title}</Link>
                                     </h4>
                                     <p>{blog.body}</p>
-                                    <Link className="card-blog__link" to="/">Read More <i className="ti-arrow-right"></i></Link>
+                                    <Link className="card-blog__link" to={`/blog/${blog.id}`}>Read More <i className="ti-arrow-right"></i></Link>
                                 </div>
                             </div>
                         </div>

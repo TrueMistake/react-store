@@ -8,6 +8,7 @@ import SwiperCore, {
 } from 'swiper';
 import {useDispatch, useSelector} from "react-redux";
 import {getBestSellers} from "../../redux/actions/products";
+import Loader from "../Loader";
 SwiperCore.use([Pagination]);
 
 
@@ -20,7 +21,7 @@ const BestSellers = () => {
     }, []);
 
     if (bestSeller.isLoading) {
-        return <div>Загрузка...</div>
+        return <Loader/>
     }
 
     return (

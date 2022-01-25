@@ -1,49 +1,20 @@
-import React, {useState} from 'react';
-import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {getBlogsFivePosts} from "../../redux/actions/blog";
+import React from 'react';
+import {getPageCount, getPagesArray} from "../../utils/pages";
 
-const Pagination = ({total}) => {
-    const dispatch = useDispatch();
-    const limit = 5;
-    const [page, setPage] = useState(1);
+const Pagination = ({total, limit, page, changePage}) => {
+    const pages = getPageCount(total, limit);
+    const pageArray = getPagesArray(pages);
 
-    const changePage = (count) => {
-        dispatch(getBlogsFivePosts({limit: limit, page: count}))
-    }
+
 
     return (
         <nav className="blog-pagination justify-content-center d-flex">
             <ul className="pagination">
-                {/*<li className="page-item">
-                    <a href="#" className="page-link" aria-label="Previous">
-                      <span aria-hidden="true">
-                          <span className="lnr lnr-chevron-left"></span>
-                      </span>
-                    </a>
-                </li>*/}
-                <li className="page-item" onClick={changePage(1)}>
-                    <Link to="/" className="page-link">01</Link>
-                </li>
-                <li className="page-item active">
-                    <Link to="/" className="page-link">02</Link>
-                </li>
-                <li className="page-item">
-                    <Link to="/" className="page-link">03</Link>
-                </li>
-                <li className="page-item">
-                    <Link to="/" className="page-link">04</Link>
-                </li>
-                <li className="page-item">
-                    <Link to="/" className="page-link">09</Link>
-                </li>
-                {/*<li className="page-item">
-                    <Link to="/" className="page-link" aria-label="Next">
-                      <span aria-hidden="true">
-                          <span className="lnr lnr-chevron-right"></span>
-                      </span>
-                    </Link>
-                </li>*/}
+                {pageArray.map(el =>
+                    <li className={page === el ? 'page-item active' : 'page-item'} onClick={() => changePage(el)} key={el}>
+                        <span className="page-link">{el < 10 ? `0${el}` : el}</span>
+                    </li>
+                )}
             </ul>
         </nav>
     );
