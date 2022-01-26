@@ -3,8 +3,7 @@ import {Link} from "react-router-dom";
 
 const Banner = () => {
     return (
-        <section className="offer skrollable skrollable-before" id="parallax-1" data-anchor-target="#parallax-1"
-                 data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
+        <section className="offer skrollable skrollable-before">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-5">

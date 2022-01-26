@@ -1,6 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {filterCategoryCount} from "../../utils/filter";
+import {useDispatch, useSelector} from "react-redux";
+import {getHeroSliderCategories} from "../../redux/actions/products";
 
-const Sidebar = () => {
+const Sidebar = ({products, category, changeCategory}) => {
+    const dispatch = useDispatch();
+    const categories = useSelector(state => state.heroSlider.categories);
+    const countProductCategories = filterCategoryCount(products.products, categories);
+
+    useEffect(() => {
+        dispatch(getHeroSliderCategories())
+    }, [])
+
     return (
         <div className="col-xl-3 col-lg-4 col-md-5">
             <div className="sidebar-categories">
@@ -9,34 +20,14 @@ const Sidebar = () => {
                     <li className="common-filter">
                         <form action="#">
                             <ul>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="men" name="brand" />
-                                        <label htmlFor="men">Men<span> (3600)</span></label>
+                                {countProductCategories.map((cat,index) =>
+                                    <li className="filter-list" key={index}>
+                                        <label>
+                                            <input className="pixel-radio" type="radio" name="category" onChange={() => changeCategory(cat.name)} checked={category !== ''}/>
+                                            {cat.name}<span> ({cat.count})</span>
+                                        </label>
                                     </li>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="women" name="brand" />
-                                        <label htmlFor="women">Women<span> (3600)</span></label>
-                                </li>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="accessories" name="brand" />
-                                        <label htmlFor="accessories">Accessories<span> (3600)</span></label>
-                                </li>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="footwear" name="brand" />
-                                    <label htmlFor="footwear">Footwear<span> (3600)</span></label>
-                                </li>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="bayItem" name="brand" />
-                                    <label htmlFor="bayItem">Bay item<span> (3600)</span></label>
-                                </li>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="electronics" name="brand" />
-                                    <label htmlFor="electronics">Electronics<span> (3600)</span></label>
-                                </li>
-                                <li className="filter-list">
-                                    <input className="pixel-radio" type="radio" id="food" name="brand" />
-                                    <label htmlFor="food">Food<span> (3600)</span></label>
-                                </li>
+                                )}
                             </ul>
                         </form>
                     </li>
@@ -44,60 +35,6 @@ const Sidebar = () => {
             </div>
             <div className="sidebar-filter">
                 <div className="top-filter-head">Product Filters</div>
-                <div className="common-filter">
-                    <div className="head">Brands</div>
-                    <form action="#">
-                        <ul>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="apple" name="brand" />
-                                    <label htmlFor="apple">Apple<span>(29)</span></label>
-                                </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="asus" name="brand"/>
-                                    <label htmlFor="asus">Asus<span>(29)</span></label>
-                            </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="gionee" name="brand" />
-                                <label htmlFor="gionee">Gionee<span>(19)</span></label>
-                            </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="micromax" name="brand" />
-                                <label htmlFor="micromax">Micromax<span>(19)</span></label>
-                            </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="samsung" name="brand" />
-                                <label htmlFor="samsung">Samsung<span>(19)</span></label>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
-                <div className="common-filter">
-                    <div className="head">Color</div>
-                    <form action="#">
-                        <ul>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="black" name="color" />
-                                    <label htmlFor="black">Black<span>(29)</span></label>
-                            </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="balckleather" name="color" />
-                                    <label htmlFor="balckleather">Black Leather<span>(29)</span></label>
-                            </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="blackred" name="color" />
-                                    <label htmlFor="blackred">Black with red<span>(19)</span></label>
-                                </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="gold" name="color" />
-                                <label htmlFor="gold">Gold<span>(19)</span></label>
-                            </li>
-                            <li className="filter-list">
-                                <input className="pixel-radio" type="radio" id="spacegrey" name="color" />
-                                <label htmlFor="spacegrey">Spacegrey<span>(19)</span></label>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
                 <div className="common-filter">
                     <div className="head">Price</div>
                     <div className="price-range-area">
@@ -127,6 +64,7 @@ const Sidebar = () => {
                     </div>
                 </div>
             </div>
+            <div className="button primary-btn mt-3" onClick={() => changeCategory('')}>Clear</div>
         </div>
     );
 };

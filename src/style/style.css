@@ -5,6 +5,29 @@ body {
     font-weight: 400;
     line-height: 1.667
 }
+@font-face {
+    font-family: 'themify';
+    src:url('https://cdn.jsdelivr.net/npm/lt-themify-icons@1.1.0/fonts/themify.eot');
+    src:url('https://cdn.jsdelivr.net/npm/lt-themify-icons@1.1.0/fonts/themify.eot') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/npm/lt-themify-icons@1.1.0/fonts/themify.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/npm/lt-themify-icons@1.1.0/fonts/themify.ttf') format('truetype'),
+    url('https://cdn.jsdelivr.net/npm/lt-themify-icons@1.1.0/fonts/themify.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="ti-"], [class*=" ti-"] {
+    font-family: 'themify';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 ul {
     list-style-type: none;
@@ -4905,4 +4928,12 @@ a {
 .swiper-slide h3{
     text-align: left;
     text-transform: uppercase;
+}
+.swiper-slide .hero-carousel__slide img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+#map{
+    height: 420px;
 }

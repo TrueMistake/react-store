@@ -11,7 +11,7 @@ const BlockBanner = ({title, text}) => {
                         <nav aria-label="breadcrumb" className="banner-breadcrumb">
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page">{text}</li>
+                                <li className="breadcrumb-item active" aria-current="page">&nbsp; {text}</li>
                             </ol>
                         </nav>
                     </div>

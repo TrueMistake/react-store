@@ -20,29 +20,14 @@ const Footer = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                        <div className="offset-lg-2 col-lg-3 col-md-6 col-sm-6">
                             <div className="single-footer-widget tp_widgets">
                                 <h4 className="footer_title">Quick Links</h4>
                                 <ul className="list">
                                     <li><Link to="/">Home</Link></li>
                                     <li><Link to="/shop">Shop</Link></li>
                                     <li><Link to="/blog">Blog</Link></li>
-                                    <li><Link to="/shop">Product</Link></li>
-                                    <li><Link to="/">Brand</Link></li>
                                     <li><Link to="/contact">Contact</Link></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col-md-6 col-sm-6">
-                            <div className="single-footer-widget instafeed">
-                                <h4 className="footer_title">Gallery</h4>
-                                <ul className="list instafeed d-flex flex-wrap">
-                                    <li><img src={require ('../img/gallery/r1.jpg')} alt="" /></li>
-                                    <li><img src={require ('../img/gallery/r2.jpg')} alt="" /></li>
-                                    <li><img src={require ('../img/gallery/r3.jpg')} alt="" /></li>
-                                    <li><img src={require ('../img/gallery/r5.jpg')} alt="" /></li>
-                                    <li><img src={require ('../img/gallery/r7.jpg')} alt="" /></li>
-                                    <li><img src={require ('../img/gallery/r8.jpg')} alt="" /></li>
                                 </ul>
                             </div>
                         </div>

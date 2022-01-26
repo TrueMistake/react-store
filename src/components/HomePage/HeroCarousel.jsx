@@ -31,7 +31,7 @@ const HeroCarousel = () => {
                 {heroCategories.categories.map((cat, index) =>
                     <SwiperSlide key={index}>
                         <div className="hero-carousel__slide">
-                            <img src="" alt="" className="img-fluid" />
+                            <img src={require ('../../img/home/hero-slide1.png')} alt="" className="img-fluid" />
                             <Link to={`/shop/`} className="hero-carousel__slideOverlay">
                                 <h3>{cat}</h3>
                                 <p>Accessories Item</p>
