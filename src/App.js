@@ -8,6 +8,8 @@ import Blog from "./pages/Blog/Blog";
 import BlogDetail from "./pages/Blog/BlogDetail";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
               <Route path="/blog" element={<Blog/>} />
               <Route path="/blog/:id" element={<BlogDetail/>} />
               <Route path="/contact" element={<Contact/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/register" element={<Register/>} />
           </Routes>
       </div>
       <Footer/>
