@@ -27,7 +27,7 @@ const Login = () => {
             value: '',
             type: 'password',
             label: 'Password',
-            errorMessage: 'Введите корректный Пароль',
+            errorMessage: 'Введите корректный Пароль или длина пароля не менее 6 символов',
             valid: false,
             touched: false,
             validation: {
@@ -130,7 +130,7 @@ const Login = () => {
                                                 <input type="checkbox"
                                                        id="f-option2"
                                                        name="selector"
-                                                       onChange={e => formCheck(e.target.value)}
+                                                       onChange={e => formCheck(e.target.checked)}
                                                 />
                                                 <label htmlFor="f-option2">Keep me logged in</label>
                                             </div>

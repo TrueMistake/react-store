@@ -14,17 +14,6 @@ const Products = ({products, isLoading}) => {
                 <div className="card text-center card-product">
                     <div className="card-product__img">
                         <img className="card-img" src={product.image} alt="" />
-                        <ul className="card-product__imgOverlay">
-                            <li>
-                                <button><i className="ti-search"></i></button>
-                            </li>
-                            <li>
-                                <button><i className="ti-shopping-cart"></i></button>
-                            </li>
-                            <li>
-                                <button><i className="ti-heart"></i></button>
-                            </li>
-                        </ul>
                     </div>
                     <div className="card-body">
                         <p>{product.category}</p>

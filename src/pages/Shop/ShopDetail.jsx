@@ -1,17 +1,23 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {singleProduct} from "../../redux/actions/products";
 import BlockBanner from "../../components/BlockBanner";
+import {getBuyPorducts} from "../../redux/actions/cart";
 
 const ShopDetail = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
-    const product = useSelector(state => state.singleProduct.single)
+    const product = useSelector(state => state.singleProduct.single);
+    const [count, setCount] = useState(1);
 
     useEffect(() => {
         dispatch(singleProduct(id))
     }, [])
+
+    const buyProduct = (product) => {
+        dispatch(getBuyPorducts({product: product, buy: +count}))
+    }
 
     return (
         <main className="main">
@@ -32,9 +38,10 @@ const ShopDetail = () => {
                                 <p>{product.description}</p>
                                 <div className="product_count">
                                     <label htmlFor="qty">Quantity:</label>
-                                    <input type="text" name="qty" id="sst" size="2" maxLength="12" value="1"
-                                           title="Quantity:" className="input-text qty" />
-                                    <a className="button primary-btn" href="#">Add to Cart</a>
+                                    <input type="number" name="qty" id="sst" size="2" maxLength="12"
+                                           value={count}
+                                           title="Quantity:" className="input-text qty" onChange={e => setCount(e.target.value)}/>
+                                    <div className="button primary-btn" onClick={() => buyProduct(product)}>Add to Cart</div>
                                 </div>
                                 <div className="card_area d-flex align-items-center">
                                     <a className="icon_btn" href="#"><i className="lnr lnr lnr-diamond"></i></a>

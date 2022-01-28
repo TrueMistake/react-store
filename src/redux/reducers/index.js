@@ -9,6 +9,7 @@ import {
 import {blogPageReducer, blogReducer, detailPostCommentsReducer, detailPostReducer} from "./blog";
 import {instargramReducer} from "./instagram";
 import {authReducer} from "./auth";
+import {cartReducer} from "./cart";
 
 const rootReducer = combineReducers({
     products: productsReducer,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     detailPost: detailPostReducer,
     detailComments: detailPostCommentsReducer,
     singleProduct: getSingleReducer,
-    auth: authReducer
+    auth: authReducer,
+    buy: cartReducer
 })
 
 export default rootReducer;
