@@ -42,7 +42,7 @@ const BestSellers = () => {
                                     </div>
                                     <div className="card-body">
                                         <p>{product.category}</p>
-                                        <h4 className="card-product__title"><Link to="/">{product.title}</Link></h4>
+                                        <h4 className="card-product__title"><Link to={`/shop/${product.id}`}>{product.title}</Link></h4>
                                         <p className="card-product__price">${product.price}</p>
                                     </div>
                                 </div>

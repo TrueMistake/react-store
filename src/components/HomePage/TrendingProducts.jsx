@@ -33,7 +33,7 @@ const TrendingProducts = () => {
                                 <div className="card-body">
                                     <p>{product.category}</p>
                                     <h4 className="card-product__title">
-                                        <Link to="/">{product.title}</Link>
+                                        <Link to={`/shop/${product.id}`}>{product.title}</Link>
                                     </h4>
                                     <p className="card-product__price">${product.price}</p>
                                 </div>

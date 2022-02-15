@@ -2,9 +2,11 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import {useSelector} from "react-redux";
 import Nav from "./Nav";
+import {totalCount} from '../utils/counter'
 
 const Header = () => {
-    const count = useSelector(state => state.buy)
+    const count = useSelector(state => state.buy);
+    const total = count.buy.length ? totalCount(count.buy) : null;
 
     return (
         <header className="header_area">
@@ -30,7 +32,7 @@ const Header = () => {
                                     <Link to="/cart" className="nav-item__link">
                                         <i className="ti-shopping-cart"></i>
                                         {count.buy.length
-                                        ? <span className="nav-shop__circle">{count.buy.length}</span>
+                                        ? <span className="nav-shop__circle">{total}</span>
                                         : null}
                                     </Link>
                                 </li>

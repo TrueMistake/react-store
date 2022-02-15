@@ -4320,7 +4320,8 @@ a {
 }
 
 .product_image_area {
-    padding-top: 50px
+    padding-top: 50px;
+    margin-bottom: 100px;
 }
 
 @media (min-width: 1000px) {
@@ -4473,6 +4474,7 @@ a {
 .product_count {
     display: inline-block;
     position: relative;
+    margin-top: 20px;
     margin-bottom: 24px
 }
 
@@ -4487,7 +4489,8 @@ a {
     width: 76px;
     border: 1px solid #eeeeee;
     border-radius: 3px;
-    padding-left: 10px
+    padding-left: 10px;
+    margin-right: 20px;
 }
 
 .product_count button {

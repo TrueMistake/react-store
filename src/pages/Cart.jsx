@@ -43,7 +43,7 @@ const Cart = () => {
                                         <td>
                                             <div className="product_count">
                                                 <input type="number" name="qty" maxLength="12"
-                                                       title="Quantity:" className="input-text qty" />
+                                                       title="Quantity:" className="input-text qty" value={product.buy}/>
                                                 <button className="increase items-count" type="button">
                                                     <i className="lnr lnr-chevron-up"></i>
                                                 </button>
@@ -85,10 +85,10 @@ const Cart = () => {
                                     <td>
                                         <div className="shipping_box">
                                             <ul className="list">
-                                                <li><a href="#">Flat Rate: $5.00</a></li>
-                                                <li><a href="#">Free Shipping</a></li>
-                                                <li><a href="#">Flat Rate: $10.00</a></li>
-                                                <li className="active"><a href="#">Local Delivery: $2.00</a></li>
+                                                <li><span>Flat Rate: $5.00</span></li>
+                                                <li><span>Free Shipping</span></li>
+                                                <li><span>Flat Rate: $10.00</span></li>
+                                                <li className="active"><span>Local Delivery: $2.00</span></li>
                                             </ul>
                                         </div>
                                     </td>
